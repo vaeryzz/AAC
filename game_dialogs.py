@@ -15,6 +15,31 @@ dialogs = {
 		"text": [ "Escape", "    You escaped!" ],
 		"choices": [ (None, "menu|", "Leave") ],
 	},
+	# NPCs
+	"village_merchant": {
+		"text": ["Village Merchant", "    An average merchant in an average store who sells average things."],
+		"choices": [
+			(None, "store|ferrec", "'What You Got?'"),
+			("Qdormant|sq07", "dialg|sq07-0", "'Im looking for work.'", "Qstart|sq07"),
+			("Qstage2|sq07", "dialg|sq07-5", "'I have your sword.'", "Qcomplete|sq07"),
+			(None, "leave|", "Leave"),
+		],
+	},
+	# PLACES
+	"cultist_house": {
+		"text": ["Abandoned House", "    It looks empty. What do you do?"],
+		"choices": [
+			("Qdormant|MQ03", "dialg|cultist_house-0", "Get In"),
+			("Qstage1|MQ03", "dialg|MQ03-0", "Get In"),
+			(None, "leave|", "Leave"),
+		],
+	},
+	"cultist_house-0": {
+		"text": ["Abandoned House", "    It's locked."],
+		"choices": [
+			(None, "leave|", "Leave"),
+		],
+	},
 	# MAIN QUEST / NPCs
 	"maiden00": {
 		"text": [ "A Maiden Before You", "    Your recent maiden. She is attractive. Very attractive. She is also a redhead." ],
@@ -57,6 +82,7 @@ dialogs = {
 			(["Qstage2|MQ01", "Ihas|plant0_extract"], "dialg|tavernkeeper04", "''I have the extract.''", ["Qcomplete|MQ01", "I-|plant0_extract"]),
 			("Qdormant|sq00", "dialg|tavernkeeper01", "''Need Anything?''", "Qstart|sq00"),
 			(["Qstage1|sq00", "Ihas|book*3"], "dialg|tavernkeeper02", "''I have them.''", ["Qcomplete|sq00", "I-|book*3"]),
+			("Qstage1|MQ04", "dialg|MQ04-0", "Show the journal"),
 			(None, "leave|", "Leave"),
 		],
 	},
@@ -191,29 +217,218 @@ dialogs = {
 		],
 	},
 	# MQ02
-	"MQ02-1": {
-		"text": [ "Descending The Void",
-			"Lookout near cave entrance. What do you do?"
+	"MQ02-1": {  # Stage 1
+		"text": [ "The Lookout",
+			"    Lookout near cave entrance. What do you do?"
 		],
 		"choices": [
-			(None, "battl|cave_lookout=MQ02-2::test::test", "Fight"),
+			(None, "battl|cave_lookout=MQ02-2::GAMEOVER::MQ02-3", "Fight"),
 			(None, "leave|", "Leave"),
 		],
 	},
-	"MQ02-2": {
+	"MQ02-2": {  # Win
 		"text": [ "Descending The Void",
-			"The Lookout is dead."
+			"    The Lookout is dead."
 		],
 		"choices": [
 			(None, "place|cave_inner", "Continue", "Qstage+|MQ02"),
 		],
 	},
-	"MQ02-3": {
+	"MQ02-3": {  # Flee
 		"text": [ "Descending The Void",
-			""
+			"    You escaped!"
 		],
-		"choices": [()],
+		"choices": [(None, "place|village", "Continue")],
 	},
+	"MQ02-4": {  # Three Bandits
+		"text": [ "Descending The Void",
+			"    You see three bandits busy talking with each other. What do you do? They have not spotted you yet."
+		],
+		"choices": [
+			(None, "battl|cave_bandit1=MQ02-5::GAMEOVER::MQ02-3", "Fight"),
+			(None, "leave|", "Leave")
+		],
+	},
+	"MQ02-5": {  # Battle 2
+		"text": [ "Descending The Void",
+			"    You take one down, two more charge at you."
+		],
+		"choices": [
+			(None, "battl|cave_lookout=MQ02-6::GAMEOVER::MQ02-3", "Fight"),
+		],
+	},
+	"MQ02-6": {  # Battle 3
+		"text": [ "Descending The Void",
+			"    Only one remains."
+		],
+		"choices": [
+			(None, "battl|cave_bandit2=MQ02-7::GAMEOVER::MQ02-3", "Fight"),
+			(None, "place|cave", "Leave")
+		],
+	},
+	"MQ02-7": {  # After the battle
+		"text": [ "Descending The Void",
+			"    Three bandits lie dead. A maiden shows emerges from the hole. The sister."
+		],
+		"choices": [
+			(None, "place|cave_inner*475,320", "Leave", "Qstage+|MQ02")
+		],
+	},
+	"MQ02-8": {  # Rescued Girl
+		"text": [ "Descending The Void",
+			"    She thanks you. You ask her for information about the bandits who took your maiden."
+		],
+		"choices": [
+			(None, "dialg|MQ02-9", "'I h...'", "Qstart|MQ03")
+		],
+	},
+	"MQ02-9": {  # Rescued Girl
+		"text": [ "Descending The Void",
+			"    About a cultist who lives in isolation. She runs off to her brother."
+		],
+		"choices": [
+			(None, "place|cave_inner", "Leave")
+		],
+	},
+	# MQ03
+	"MQ03-0": {  # House Entrance
+		"text": [ "The Cultist",
+			"    The door is open. The cultist notices you. The door fails to open in time as you dodge a sword. prepare to fight!"
+		],
+		"choices": [
+			(None, "battl|cultist0=MQ03-2::GAMEOVER::MQ03-1", "Fight")
+		],
+	},
+	"MQ03-1": {  # Flee
+		"text": [ "Cultist In Retreat",
+			"    You escaped!"
+		],
+		"choices": [(None, "place|forest", "Continue")],
+	},
+	"MQ03-2": {  # Cultist Dead
+		"text": [ "Cultist In Retreat",
+			"    The cultist falls. You search his place for clues. In a messy pile around his table, you find something."
+		],
+		"choices": [(None, "dialg|MQ03-3", "'What is it?'", "Qcomplete|MQ03")],
+	},
+	"MQ03-3": {  # Journal
+		"text": [ "Cultist In Retreat",
+			"    It's a journal."
+		],
+		"choices": [(None, "dialg|MQ03-4", "Open it", "Qstart|MQ04")],
+	},
+	"MQ03-4": {  # Journal
+		"text": [ "Cultist In Retreat",
+			"    But it's encrypted in a strange language."
+		],
+		"choices": [(None, "leave|", "Leave")],
+	},
+	# MQ04
+	"MQ04-0": {
+		"text": ["Decoding The Script", "    You showed the cultist's journal to the tavernkeeper. She said she didn't know anything about it. You prepare to leave with a look of disappointment... "],
+		"choices": [
+			(None, "dialg|MQ04-1", "Until", "Qstage+|MQ04"),
+		],
+	},
+	"MQ04-1": {
+		"text": [ "Decoding The Script",
+			"    You were approached by a man who claimed to be a treasure hunter. He looks like a veteran. He said there was a ruin somewhat far from here that had a library of expensive books. He needed help and told you to meet him there. He said there might be a lexicon that could decode the cultist's journal."
+		],
+		"choices": [(None, "leave|", "Leave")],
+	},
+	"MQ04-2": {
+		"text": [ "Decoding The Script",
+			"    'Help me open this! I can't do it myself!'"
+		],
+		"choices": [(None, "dialg|MQ04-3", "'Sure'")],
+	},
+	"MQ04-3": {
+		"text": [ "Decoding The Script",
+			"    You helped him open it. There are lots of gold there. Before you could grasp the composition of the chest, you hear a sword being unsheathed."
+		],
+		"choices": [(None, "dialg|MQ04-4", "Turn around")],
+	},
+	"MQ04-4": {
+		"text": [ "Decoding The Script",
+			"    His sword points at you. You stare at him in disbelief. \n    'I don't want to split it in half with you. It's a lot of gold. I might have to kill you.' \n    The man is too strong. He is a veteran. He looks like he killed dozens of men. You have no chance."
+		],
+		"choices": [
+			(None, "dialg|MQ04-5", "Flee", "Qcomplete|MQ04"),
+			(None, "dialg|MQ04-6", "Persuade", "Qcomplete|MQ04"),
+		],
+	},
+	"MQ04-5": {
+		"text": [ "Decoding The Script",
+			"    You ran away. You came back a few hours later to see some items laying around. The chest is missing. But there's a lexicon that can decode the journal lying on the ground."
+		],
+		"choices": [(None, "dialg|MQ04-7|", "Unlock it", "Qstart|MQ05")],
+	},
+	"MQ04-6": {
+		"text": [ "Decoding The Script",
+			"    After minutes of persuading you didn't know if your spiel had worked. There was another tense moment. A tear began rolling down his eye. He agrees. The treasure hunter leaves with the chest but not before leaving a few items behind, including a lexicon that could decode the journal of the cultist."
+		],
+		"choices": [(None, "dialg|MQ04-7|", "Unlock it", "Qstart|MQ05")],
+	},
+	"MQ04-7": {
+		"text": [ "Decoding The Script",
+			"    You have decoded the journal. You now know the location of the bandit camp."
+		],
+		"choices": [(None, "place|ruin*375,295", "Leave")],
+	},
+	# SIDE QUESTS
+	# sq07 start ----------------------------------------------------------------
+	"sq07-0": {
+		"text": ["Missing Sword", "    ''I lost this sword near a pond while my unit was ambushed. I escaped. Years later, I want it back. Find it for me and I will give you a hefty reward.''"],
+		"choices": [
+			(None, "leave|", "'Very well.'"),
+		],
+	},
+	"sq07-1": {
+		"text": ["Missing Sword", "    It's a pondcrab!"],
+		"choices": [
+			(None, "battl|pondcrab0=sq07-3::GAMEOVER::sq07-2", "Fight"),
+			("Ihas|plant0_extract", "dialg|sq07-3", "Throw an extract at it"),
+			(None, "place|forest2", "Flee"),
+		],
+	},
+	"sq07-2": {
+		"text": ["Missing Sword", "    You escaped the pondcrab!"],
+		"choices": [
+			(None, "place|forest2", "Leave"),
+		],
+	},
+	"sq07-3": {
+		"text": ["Missing Sword", "    You defeated the pondcrab!"],
+		"choices": [
+			(None, "dialg|sq07-4", "The Sword", "Qstage+|sq07"),
+		],
+	},
+	"sq07-4": {
+		"text": ["Missing Sword", "    You have the sword. It's rusty, old, and smells."],
+		"choices": [
+			(None, "place|forest*345,390", "Leave"),
+		],
+	},
+	"sq07-5": {
+		"text": ["Missing Sword", "    The merchant looks at it disgusted. He said that you could keep it or throw it away. He asked you the leave the store because it is beginning to smell."],
+		"choices": [
+			(None, "place|village*312,320", "Leave"),
+		],
+	},
+	# sq07 end ----------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	"patience_cabin-descr": {

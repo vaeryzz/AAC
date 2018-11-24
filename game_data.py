@@ -63,7 +63,7 @@ characters = {
 	
 	
 	"cave_lookout": {
-		"name": "Lookout",
+		"name": "Weak Bandit",
 		"inventory": [],
 		"coin": 25,
 		"stats": [
@@ -72,6 +72,39 @@ characters = {
 		],
 		"avatar": "bw-man0i-ava",
 		"image": "bw-man0i-f",
+	},
+	"cave_bandit1": {
+		"name": "Weak Bandit",
+		"inventory": [],
+		"coin": 35,
+		"stats": [
+			[24, 24], 1, 5, 1, 3, 0,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0g-ava",
+		"image": "bw-man0g-f",
+	},
+	"cave_bandit2": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 125,
+		"stats": [
+			[35, 35], 1, 5, 5, 5, 0,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0b-ava",
+		"image": "bw-man0b-f",
+	},
+	"cultist0": {
+		"name": "Cultist",
+		"inventory": [],
+		"coin": 200,
+		"stats": [
+			[50, 50], 1, 1, 0, 4, 0,
+			75, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0b-ava",
+		"image": "bw-man0b-f",
 	},
 	"bandit0": {
 		"name": "Weak Bandit",
@@ -89,11 +122,33 @@ characters = {
 		"inventory": [],
 		"coin": 0,
 		"stats": [
-			[5, 25], 2, 1, 0, 1, 100,
+			[5, 5], 2, 1, 0, 1, 100,
 			70, 15, 15, 25, 0
 		],
 		"avatar": "bw-t-fmonster0-ava",
 		"image": "bw-t-fmonster0",
+	},
+	"pondcrab0": {
+		"name": "Pondcrab",
+		"inventory": [],
+		"coin": 50,
+		"stats": [
+			[12, 25], 1, 1, 1, 3, 100,
+			70, 15, 15, 25, 0
+		],
+		"avatar": "bw-t-npc-pondcrab0-ava",
+		"image": "bw-t-npc-pondcrab0",
+	},
+	"treasure_hunter": {
+		"name": "Treasure Hunter",
+		"inventory": [],
+		"coin": 375,
+		"stats": [
+			[48, 48], 1, 1, 7, 6, 0,
+			75, 15, 35, 50, 0
+		],
+		"avatar": "bw-t-npc-treasurehunter-ava",
+		"image": "bw-t-npc-treasurehunter-f",
 	},
 }
 containers = {
@@ -119,7 +174,7 @@ items = {
 	"hpot0": {
 		"name": "Health Potion",
 		"type": "potion",
-		"image": "invi_potion",
+		"image": "bw-t-pot-hp0",
 		"descr": "A bitter potion of healing.",
 		"price": [47, 27],
 		#"quality": ("Uncommon", "#776611"),
@@ -129,7 +184,7 @@ items = {
 	"plant0_extract": {
 		"name": "Cinder Extract",
 		"type": "potion",
-		"image": "invi_potion",
+		"image": "bw-t-pot-cintract",
 		"descr": "A powerful potion of healing.",
 		"price": [127, 67],
 		"heal_value": 20,
@@ -138,11 +193,21 @@ items = {
 	"book": {  # make quality list later
 		"name": "Book",
 		"type": "treasure",
-		"image": "invi_books",
+		"image": "bw-t-trs-book",
 		"descr": "Valuable to the wealthy and few.",
 		# buy/sell
 		"price": [250, 125],
 	},
+	"book_special": {
+		"name": "Special Book",
+		"type": "treasure",
+		"image": "bw-t-trs-book-special",
+		"descr": "It's special.",
+		"quality": ("Uncommon", "#776611"),
+		# buy/sell
+		"price": [500, 385],
+	},
+	# OLD
 	"books": {  # make quality list later
 		"name": "Books",
 		"type": "treasure",
@@ -153,11 +218,21 @@ items = {
 		"price": [250, 125],
 	},
 	# weapon -----------------------------------
+	"sword_steel_rusty": {
+		"name": "Rusty Sword",
+		"type": "weapon",
+		"image": "bw-t-wpn-sword-steel-rusty",
+		"descr": "A rusty steel sword. Deadly nonetheless.",
+		"price": [300, 150],
+		"weapon_type": "sword",
+		"attack_value": 8,
+	},
+	# OLD
 	"copper_axe": {
 		"name": "Copper Axe",
 		"type": "weapon",
-		"image": None,
-		"descr": None,
+		"image": "bw-t-axe-copper",
+		"descr": "A brittle axe.",
 		"price": [107, 49],
 		# unique variables
 		"weapon_type": "axe",
@@ -166,8 +241,8 @@ items = {
 	"copper_mace": {
 		"name": "Copper Mace",
 		"type": "weapon",
-		"image": None,
-		"descr": None,
+		"image": "bw-t-wpn-mace-copper",
+		"descr": "A tool for breaking bones.",
 		"price": [149, 75],
 		# unique variables
 		"weapon_type": "mace",
@@ -191,7 +266,7 @@ items = {
 		"price": [261, 129],
 		# unique variables
 		"weapon_type": "sword",
-		"attack_value": 7
+		"attack_value": 6
 	},
 }
 perks = {
@@ -257,8 +332,12 @@ perks = {
 map_markers = {  # appears on map
 	"cabin": { "name": "Cabin", "image": "bw-cabin-35x35", "coords": (150, 400), },
 	"cave": { "name": "Cave", "image": "bw-cave-35x35", "coords": (110, 200), },
-	"forest": { "name": "Forest", "image": "bw-forest-30x30", "coords": (420, 220), },
+	"forest": { "name": "", "image": "bw-forest-30x30", "coords": (417, 195), },
+	"forest1": { "name": "", "image": "bw-forest-30x30", "coords": (455, 200), },
+	"forest2": { "name": "", "image": "bw-forest-30x30", "coords": (425, 220), },
 	"village": { "name": "Village", "image": "bw-village-40x40", "coords": (355, 250), },
+	"cultist_house": { "name": "House", "image": "bw-house-30x30", "coords": (475, 350), },
+	"ruin": { "name": "Ruin", "image": "bw-fhouse-30x30", "coords": (250, 150), },
 }
 '''
 	"vhouse": {
@@ -351,13 +430,51 @@ world_places = {  # list of places
 	"cave_inner": {
 		"name": "Cave",
 		"type": ["outdoors", "bw-bg_top3", "bw-bg_bot3"],
-		"entry_coords": (675, 317),
+		"entry_coords": (275, 317),
+		"walk_range": "default",
+		"events": [  # "Qstage2|MQ02"
+			("Qstage2|MQ02", "dialg|MQ02-4", "bw-man0g-f|650,175"),
+			("Qstage2|MQ02", "dialg|MQ02-4", "bw-man0i|500,160"),
+			("Qstage2|MQ02", "dialg|MQ02-4", "bw-man0b|480,200"),
+			("Qstage3|MQ02", "dialg|MQ02-8", "bw-t-girl0-f|650,200", "Qcomplete|MQ02"),
+			(None, "place|cave", "bw-arrow_up|105,270"),
+		],
+	},
+	"cultist_house": {
+		"name": "House",
+		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
+		"entry_coords": (275, 317),
 		"walk_range": "default",
 		"events": [
-			(None, "place|cave", "bw-arrow_up|705,270"),
+			(None, None, "bw-house1|350,170"),
+			(None, "dialg|cultist_house", "bw-hdoor0|445,268"),
+			(None, "leave|", "bw-arrow_up|205,270"),
 		],
 	},
 	"forest": {
+		"name": "Forest",
+		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot2"],
+		"entry_coords": (145, 417),
+		"walk_range": "default",
+		"events": [
+			#("Qstarted|MQ01", "place|forest_inner0*155,345", "bw-arrow_up|700,275"),
+			#(None, "dialg|plant0", "bw-t-fmonster0|590,180"),
+			("Qstage1|sq07", "dialg|sq07-1", "bw-t-npc-pondcrab0-ava|350,250"),
+			(None, "leave|", "bw-arrow_down|100,545"),
+		],
+	},
+	"forest1": {
+		"name": "Forest",
+		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
+		"entry_coords": (425, 417),
+		"walk_range": "default",
+		"events": [
+			#("Qstarted|MQ01", "place|forest_inner0*155,345", "bw-arrow_up|700,275"),
+			#(None, "dialg|plant0", "bw-t-fmonster0|590,180"),
+			(None, "leave|", "bw-arrow_down|445,545"),
+		],
+	},
+	"forest2": {
 		"name": "Forest",
 		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
 		"entry_coords": (425, 417),
@@ -386,7 +503,9 @@ world_places = {  # list of places
 		"events": [
 			# Tavern
 			(None, None, "bw-house0|160,170"),
-			(None, "store|ferrec", "bw-hdoor0|180,253"),
+			(None, None, "bw-t-obj-storesign|195,224"),
+			#(None, "store|ferrec", "bw-hdoor0|180,253"),
+			(None, "place|village_store", "bw-hdoor0|180,253"),
 			(None, None, "bw-house1|-50,160"),
 			(None, None, "bw-tavern|245,135"),
 			(None, "place|village_tavern", "bw-hdoor0|388,259"),
@@ -394,6 +513,19 @@ world_places = {  # list of places
 			(None, None, "bw-house0|705,170"),
 			(None, "dialg|village-empty_house", "bw-hdoor0|722,253"),
 			(None, "leave|", "bw-gate0|585,213"),  # Gate
+		],
+	},
+	"village_store": {
+		"name": "Store",
+		"type": ["indoors", "bw-wall0", "bw-floor0"],
+		"entry_coords": (480, 302),
+		"walk_range": "default",
+		"events": [
+			(None, "place|village*312,320", "bw-door0|587,162"),
+			(None, None, "bw-t-shelf0|215,127"),
+			(None, None, "bw-t-shelf0|415,127"),
+			(None, "dialg|village_merchant", "bw-t-npc-merchant|330,202"),
+			(None, None, "bw-counter|205,287"),
 		],
 	},
 	"village_tavern": {
@@ -407,10 +539,27 @@ world_places = {  # list of places
 			(None, "dialg|tavernkeeper00", "bw-woman0|180,190"),
 			(None, None, "bw-counter|65,270"),
 			(None, None, "bw-table|80,450"),
+			("Qstage1|MQ04", None, "bw-t-npc-treasurehunter-f|654,340"),
 			(None, None, "bw-table|538,450"),
 		],
 	},
-	
+	"ruin": {
+		"name": "Ruin",
+		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
+		"entry_coords": (275, 295),
+		"walk_range": "default",
+		"events": [
+			(None, "leave|", "bw-gate0|100,213"),
+			(None, None, "bw-t-obj-fort-destroyed|435,150"),
+			(None, None, "bw-house0-z|-75,180"),
+			(None, None, "bw-house0-z|325,180"),
+			(None, None, "bw-house0-z-f|685,180"),
+			(None, None, "bw-house0-z-f|195,190"),
+			("Qstage2|MQ04", None, "bw-t-chest0|600,315"),
+			("Qstage2|MQ04", "dialg|MQ04-2", "bw-t-npc-treasurehunter-f|475,203"),
+			
+		],
+	},
 	
 	
 	"vhouse": {
@@ -481,14 +630,14 @@ world_places = {  # list of places
 }
 quests = {  # Quest added to fertigql if reward is given
 	# MAIN QUESTS ACT 1  10k EXP 3k GOLD
-	"MQ00": {
+	"MQ00": {  # COMPLETED
 		"name": "Maiden In Illness",
 		"stage": [0, 2],
 		"stage1": ["    My recent maiden is ill and needs a tonic."],
 		"stage2": ["    I was attacked right after I gave her the potion."],
 		"reward": [1000, 0, ["hpot0"]],  # exp, gold, items
 	},
-	"MQ01": {
+	"MQ01": {  # COMPLETED
 		"name": "Gathering The Pieces",
 		"stage": [0, 3],
 		"stage1": ["    I need time to recover. Once I am able to, I should go to the village for answers. Some of the villagers may have information about the attack. I am too wounded to fight the bandits and I need time to rest and recover."],
@@ -496,22 +645,23 @@ quests = {  # Quest added to fertigql if reward is given
 		"stage3": ["    I delivered the plant extract just in time. The mute boy is still in bed but the tavernkeeper said that he is recovering and that he would have died if it was not for me. I should hone my fighting skills while the boy recovers."],
 		"reward": [1500, 100, ["hpot0", "hpot0"]],
 	},
-	"MQ02": {
+	"MQ02": {  # COMPLETED
 		"name": "Descending The Void",
-		"stage": [0, 3],
+		"stage": [0, 4],
 		"stage1": ["    The mute boy tells of a cave to the north west. There a group of bandits rest after their raiding and pillaging. They might be the ones that have destroyed the cabin."],
 		"stage2": ["    I have killed the lookout. I should go further down the cave."],
-		"stage3": ["    The bandits are dead. I had rescued a girl, somehow related to the mute boy. She gave me useful information. She is in the village now."],
-		"reward": [2000, 750, ["cloak_shield0", "copper_axe", "copper_sword", "hpot0", "hpot0", "hpot0", "hpot0", "hpot0", "iron_sword"]],
+		"stage3": ["    I have killed the bandits."],
+		"stage4": ["    The bandits are dead. I had rescued a girl, somehow related to the mute boy. She gave me useful information. She is in the village now."],
+		"reward": [2000, 750, ["cloak_shield0", "copper_sword", "hpot0", "hpot0", "hpot0", "hpot0", "hpot0", "iron_sword"]],
 	},
-	"MQ03": {
+	"MQ03": {  # COMPLETED
 		"name": "Cultist In Retreat",
 		"stage": [0, 2],
-		"stage1": ["    This cultist has been trading and helping these bandits. The rogue bandits from the cave planned to rob him. He knows the location of the bandits that took my maiden. His abode lies to the north east."],
+		"stage1": ["    This cultist has been trading and helping these bandits. The rogue bandits from the cave planned to rob him. He knows the location of the bandits that took my maiden. His abode lies somewhere to the west."],
 		"stage2": ["    I have recovered his journal but it is written in another language. Its writing is other wordly. I will need something to decode its contents."],
 		"reward": [750, 350, ["book", "book", "book", "book"]],
 	},
-	"MQ04": {
+	"MQ04": {  # COMPLETED
 		"name": "Decoding The Script",
 		"stage": [0, 3],
 		"stage1": ["    I should ask around the village for answers. The tavernkeeper likes books. She might know something"],
@@ -527,40 +677,80 @@ quests = {  # Quest added to fertigql if reward is given
 		"reward": [3000, 1500, ["hpot0", "hpot0", "epic_axe"]],
 	},
 	# SIDE QUESTS ACT 1  5k EXP 2k GOLD
-	"sq00":{
+	"sq00": {
 		"name": "Desire For Books",
 		"stage": [0, 2],
 		"stage1": ["    The tavernkeeper wants books. She'll pay a decent amount of gold for it."],
 		"stage2": ["    I gave the books to the tavernkeeper."],
 		"reward": [250, 300, ["hpot0"]],  # , "copper_axe" no image
 	},
-	"sq01":{
+	"sq01": {
 		"name": "Need For Gold",
 		"stage": [0, 2],
 		"stage1": ["    The young lady needs gold to rebuild her life."],
 		"stage2": ["    I gave the young lady gold."],
 		"reward": [250, 0, ["hpot0"]],
 	},
-	"sq02":{
+	"sq02": {
 		"name": "Man To Kill",
 		"stage": [0, 2],
 		"stage1": ["    They need a man dead. They'll pay good money. really good money."],
 		"stage2": ["    The job is done. I received the gold."],
 		"reward": [2500, 700, []],
 	},
-	"sq03":{
+	"sq03": {
 		"name": "Lost Special Item",
 		"stage": [0, 2],
 		"stage1": ["    They have a lost an item of special value. They will pay good gold for it."],
 		"stage2": ["    I have given them their special item."],
 		"reward": [750, 500, ["hpot0", "hpot0"]],
 	},
-	"sq04":{
+	"sq04": {
 		"name": "Bandit To Kill",
 		"stage": [0, 2],
 		"stage1": ["    An infamous bandit needs to die. They will pay good gold."],
 		"stage2": ["    I killed the bandit and received the gold."],
 		"reward": [1250, 500, []],
+	},
+	# MORE SIDE QUESTS  5k EXP 3k GOLD
+	"sq05": {  # Tavern Keeper
+		"name": "Debt Collection",
+		"stage": [0, 3],
+		"stage1": ["    A drunk hasn't paid his tab for a while. The tavernkeeper has sent you to collect 5000 gold. She said you'll get a quarter of it as a reward. It seems easy. The man is drunk. He is around the village."],
+		"stage2": ["    I got the gold from the man. All 5000 of it. I should head back now to the tavernkeeper."],
+		"stage3": ["    I got some money after giving it all back to the tavernkeeper. It's nice to be honest."],
+		"reward": [750, 1250, []],
+	},
+	"sq06": {  # Strange Woman
+		"name": "The Three Books",
+		"stage": [0, 2],
+		"stage1": ["    The strange woman likes books. She wants three Special books this time. She'll pay good money."],
+		"stage2": ["    I gave her three special books and she gave me gold for it. She said it was a fair deal."],
+		"reward": [1000, 950, []],
+	},
+	"sq07": {  # Merchant - Completed
+		"name": "Missing Sword",
+		"stage": [0, 3],
+		"stage1": ["    The merchant used to be a soldier. He lost his sword somewhere near a pond. He wants it back for old time's sake."],
+		"stage2": ["    I got the sword. It's rusty, old, and smells."],
+		"stage3": ["    The merchant didn't like it and told me to keep it instead. I received some few gold coins for my efforts."],
+		"reward": [2250, 50, ["sword_steel_rusty"]],
+	},
+	"sq08": {  # Odd Man
+		"name": "Lost Item",
+		"stage": [0, 3],
+		"stage1": ["    An odd man lost a lucky horseshoe somewhere near a pond. He wants you to find it."],
+		"stage2": ["    I found his lucky horseshoe. I should go back to the man."],
+		"stage3": ["    A man lost a lucky horseshoe somewhere near a pond"],
+		"reward": [500, 300, []],
+	},
+	"sq09": {  # Sly Girl
+		"name": "A Lesson",
+		"stage": [0, 3],
+		"stage1": ["    The village thief needs to be thought a lesson. Beat him up and bring his teeth as a reward."],
+		"stage3": ["    I got his teeth. I should go back and collect my reward."],
+		"stage2": ["    The thief promised to live a new life of good. He fled the village. I got my reward."],
+		"reward": [500, 450, ["book"]],
 	},
 }
 

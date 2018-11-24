@@ -107,7 +107,7 @@ class Battle:
 		self.eIMG = enemy["image"]  # battle image
 		self.eAvt = enemy["avatar"]  # battle avatar
 		
-		ws.PlaySound('Volatile_Reaction.wav', ws.SND_ASYNC)
+		#ws.PlaySound('Volatile_Reaction.wav', ws.SND_ASYNC)
 		
 		# init game stats
 		self.turn_holder = "Player"
@@ -2621,6 +2621,15 @@ class Places:
 				self.cn.itemconfigure(tn, fill="#441122")
 		e = "no_raise"
 		if y >= 450: e = "raise_tag"
+		'''
+		x = int(x)
+		y = str(y)
+		if y[-(len("Raise")):] == "Raise" or int(y) >= 450:
+			e = "raise_tag"
+			y = int(y[:-len("Raise")])
+		else:
+			y = int(y)
+		'''
 		self.zbox.mimg(x, y, image, (tag, tag+"_img", "place_image", e),
 			anchor=anchor)
 		#h = int(image[-2:])  # height 99px max

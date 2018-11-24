@@ -1,0 +1,8 @@
+going back to menu after losing battle despite winning roll to escape
+announce text bug
+unable to move in worldmap after new game from gameover
+TYPING ''DECODE IT'' IN DIALOGS CAUSES A PROBLEM IN LAUNCHING THE GAME
+
+SOLVED!
+[1] perks not reseting after loading, temp solution is to exit and restart game
+	Reseting values during loading. 
