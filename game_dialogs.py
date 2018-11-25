@@ -375,6 +375,79 @@ dialogs = {
 		],
 		"choices": [(None, "place|ruin*375,295", "Leave")],
 	},
+	# MQ05
+	"MQ05-0": {
+		"text": [ "Showdown In Camp",
+			"    A pair of bandits spots you as you travel within the forest. You foiled their ambush. Prepare to fight!"
+		],
+		"choices": [(None, "battl|camp_bandit0=MQ05-2::GAMEOVER::MQ05-1", "Fight")],
+	},
+	"MQ05-1": {
+		"text": [ "Showdown In Camp",
+			"    You escaped them!"
+		],
+		"choices": [(None, "place|forest3", "Leave")],
+	},
+	"MQ05-2": {
+		"text": [ "Showdown In Camp",
+			"    The first of them falls. You could hear more coming towards you. The second bandit launches his axe in your direction!"
+		],
+		"choices": [(None, "battl|camp_bandit1=MQ05-2b::GAMEOVER::MQ05-1", "Battle")],
+	},
+	"MQ05-2b": {
+		"text": [ "Showdown In Camp",
+			"    You defeated them!"
+		],
+		"choices": [(None, "place|forest3_camp_entrance", "Continue")],
+	},
+	"MQ05-3": {
+		"text": [ "Showdown In Camp",
+			"    As you stand in front of the gate thinking of a way to get inside, it suddenly opens. A bandit looks to you surprised. He tries to unsheathe his weapon but you stab him in the throat. Another one comes after you screaming."
+		],
+		"choices": [(None, "battl|camp_bandit2=MQ05-4::GAMEOVER::MQ05-1", "Fight")],
+	},
+	"MQ05-4": {
+		"text": [ "Showdown In Camp",
+			"    Another one charges at you before you have time to react."
+		],
+		"choices": [(None, "battl|camp_bandit3=MQ05-5::GAMEOVER::MQ05-1", "Battle")],
+	},
+	"MQ05-5": {
+		"text": [ "Showdown In Camp",
+			"    You defeated them and went inside the camp."
+		],
+		"choices": [(None, "place|forest3_camp", "Contine")],
+	},
+	"MQ05-6": {
+		"text": [ "Showdown In Camp",
+			"    Fight!"
+		],
+		"choices": [(None, "battl|camp_bandit4=MQ05-7::GAMEOVER::MQ05-1", "Battle")],
+	},
+	"MQ05-7": {
+		"text": [ "Showdown In Camp",
+			"    Another one charges towards you!"
+		],
+		"choices": [(None, "battl|camp_bandit5=MQ05-8::GAMEOVER::MQ05-1", "Battle")],
+	},
+	"MQ05-8": {
+		"text": [ "Showdown In Camp",
+			"    Both of the guards lie dead. A figure emerges from the tent. He wields an axe. You recognize the face. He throws you an unnaturaly evil grin and raises his weapon."
+		],
+		"choices": [(None, "battl|camp_bandit_boss=MQ05-9::GAMEOVER::MQ05-1", "Battle")],
+	},
+	"MQ05-9": {
+		"text": [ "Showdown In Camp",
+			"    The man who lead the attack on your cabin is now dead. You search the camp for useful things and information but do not find anything about your woman. You hear shouting in the distance. You take what you can and leave wondering what happened to the maiden. The thought would never leave your mind until your last breath. \n\n        THE END (?)"
+		],
+		"choices": [(None, "dialg|MQ05-10", "Continue", "Qcomplete|MQ05")],
+	},
+	"MQ05-10": {
+		"text": [ "Credits",
+			"    Romar Mandap"
+		],
+		"choices": [(None, "place|forest3", "Leave")],
+	},
 	# SIDE QUESTS
 	# sq07 start ----------------------------------------------------------------
 	"sq07-0": {

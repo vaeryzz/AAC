@@ -59,7 +59,84 @@ characters = {
 		"avatar": "bw-t-fmonster0-ava",
 		"image": "bw-t-fmonster0",
 	},
-	
+	## -- Camp Bandits -- ##
+	"camp_bandit0": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 25,
+		"stats": [
+			[35, 35], 2, 0, 1, 2, 100,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0b-ava",
+		"image": "bw-man0b-f",
+	},
+	"camp_bandit1": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 25,
+		"stats": [
+			[35, 35], 1, 0, 2, 4, 200,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0g-ava",
+		"image": "bw-man0g-f",
+	},
+	"camp_bandit2": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 30,
+		"stats": [
+			[38, 38], 1, 0, 1, 5, 300,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0c-ava",
+		"image": "bw-man0c-f",
+	},
+	"camp_bandit3": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 30,
+		"stats": [
+			[38, 38], 1, 0, 0, 5, 300,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0h-ava",
+		"image": "bw-man0h-f",
+	},
+	"camp_bandit4": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 50,
+		"stats": [
+			[40, 40], 2, 0, 5, 2.5, 500,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0f-ava",
+		"image": "bw-man0f-f",
+	},
+	"camp_bandit5": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 50,
+		"stats": [
+			[40, 40], 1, 0, 5, 5, 500,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0e-ava",
+		"image": "bw-man0e-f",
+	},
+	"camp_bandit_boss": {
+		"name": "Bandit",
+		"inventory": [],
+		"coin": 1000,
+		"stats": [
+			[45, 45], 1, 0, 10, 4, 1000,
+			60, 15, 15, 25, 0
+		],
+		"avatar": "bw-man0d-ava",
+		"image": "bw-man0d-f",
+	},
 	
 	
 	"cave_lookout": {
@@ -67,7 +144,7 @@ characters = {
 		"inventory": [],
 		"coin": 25,
 		"stats": [
-			[17, 17], 2, 5, 1, 2, 0,
+			[17, 17], 2, 5, 1, 2, 100,
 			60, 15, 15, 25, 0
 		],
 		"avatar": "bw-man0i-ava",
@@ -78,7 +155,7 @@ characters = {
 		"inventory": [],
 		"coin": 35,
 		"stats": [
-			[24, 24], 1, 5, 1, 3, 0,
+			[24, 24], 1, 5, 1, 3, 100,
 			60, 15, 15, 25, 0
 		],
 		"avatar": "bw-man0g-ava",
@@ -89,7 +166,7 @@ characters = {
 		"inventory": [],
 		"coin": 125,
 		"stats": [
-			[35, 35], 1, 5, 5, 5, 0,
+			[35, 35], 1, 5, 5, 5, 100,
 			60, 15, 15, 25, 0
 		],
 		"avatar": "bw-man0b-ava",
@@ -100,7 +177,7 @@ characters = {
 		"inventory": [],
 		"coin": 200,
 		"stats": [
-			[50, 50], 1, 1, 0, 4, 0,
+			[50, 50], 1, 1, 0, 4, 100,
 			75, 15, 15, 25, 0
 		],
 		"avatar": "bw-man0b-ava",
@@ -111,7 +188,7 @@ characters = {
 		"inventory": [],
 		"coin": 25,
 		"stats": [
-			[17, 17], 1, 5, 1, 2, 0,
+			[17, 17], 1, 5, 1, 2, 100,
 			60, 15, 15, 25, 0
 		],
 		"avatar": "bw-man0i-ava",
@@ -225,7 +302,16 @@ items = {
 		"descr": "A rusty steel sword. Deadly nonetheless.",
 		"price": [300, 150],
 		"weapon_type": "sword",
-		"attack_value": 8,
+		"attack_value": 7,
+	},
+	"axe_epic": {
+		"name": "Epic Axe",
+		"type": "weapon",
+		"image": "bw-t-axe-copper1",
+		"descr": "An instrument of death.",
+		"price": [750, 500],
+		"weapon_type": "axe",
+		"attack_value": 12,
 	},
 	# OLD
 	"copper_axe": {
@@ -338,6 +424,7 @@ map_markers = {  # appears on map
 	"village": { "name": "Village", "image": "bw-village-40x40", "coords": (355, 250), },
 	"cultist_house": { "name": "House", "image": "bw-house-30x30", "coords": (475, 350), },
 	"ruin": { "name": "Ruin", "image": "bw-fhouse-30x30", "coords": (250, 150), },
+	"forest3": { "name": "", "image": "bw-forest-30x30", "coords": (160, 130), },
 }
 '''
 	"vhouse": {
@@ -463,6 +550,16 @@ world_places = {  # list of places
 			(None, "leave|", "bw-arrow_down|100,545"),
 		],
 	},
+	"forest_inner0": {
+		"name": "Forest",
+		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
+		"entry_coords": (425, 417),
+		"walk_range": "default",
+		"events": [
+			(None, "dialg|plant0", "bw-t-fmonster0|590,180"),
+			(None, "place|forest", "bw-arrow_up|100,275"),
+		],
+	},
 	"forest1": {
 		"name": "Forest",
 		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
@@ -485,14 +582,61 @@ world_places = {  # list of places
 			(None, "leave|", "bw-arrow_down|445,545"),
 		],
 	},
-	"forest_inner0": {
+	"forest3": {
 		"name": "Forest",
 		"type": ["outdoors", "bw-bg_top1", "bw-bg_bot1"],
 		"entry_coords": (425, 417),
 		"walk_range": "default",
 		"events": [
-			(None, "dialg|plant0", "bw-t-fmonster0|590,180"),
-			(None, "place|forest", "bw-arrow_up|100,275"),
+			("Qcompleted|MQ05", "place|forest3_camp_entrance", "bw-arrow_up|552,275"),
+			("Qstage1|MQ05", "dialg|MQ05-0", "bw-arrow_up|552,275"),
+			(None, "leave|", "bw-arrow_down|445,545"),
+		],
+	},
+	"forest3_camp_entrance": {
+		"name": "Bandit Camp",
+		"type": ["outdoors", "bw-bg_top2", "bw-bg_bot1"],
+		"entry_coords": (325, 417),
+		"walk_range": "default",
+		"events": [
+			("Qcompleted|MQ05", "place|forest3_camp", "bw-gate0|340,212"),
+			("Qstage1|MQ05", "dialg|MQ05-3", "bw-gate0|340,212"),
+			(None, "place|forest3", "bw-arrow_down|345,545"),
+		],
+	},
+	"forest3_camp": {
+		"name": "Bandit Camp",
+		"type": ["outdoors", "bw-bg_top2", "bw-bg_bot1"],
+		"entry_coords": (325, 450),
+		"walk_range": (75, 330, 725, 430),
+		"events": [
+			("Qcompleted|MQ05", "place|forest3_camp_tent0", "bw-t-obj-tent0|300,170"),
+			("Qcompleted|MQ05", "place|forest3_camp_tent1", "bw-t-obj-tent1|550,190"),
+			("Qcompleted|MQ05", "place|forest3_camp_tent1", "bw-t-obj-tent1|50,190"),
+			("Qstage1|MQ05", None, "bw-t-obj-tent0|300,170"),
+			("Qstage1|MQ05", None, "bw-t-obj-tent1|550,190"),
+			("Qstage1|MQ05", None, "bw-t-obj-tent1|50,190"),
+			("Qstage1|MQ05", "dialg|MQ05-6", "bw-man0f-f|250,200"),
+			("Qstage1|MQ05", "dialg|MQ05-6", "bw-man0e|450,200"),
+			("Qcompleted|MQ05", "place|forest3_camp_entrance", "bw-arrow_down|245,545"),
+		],
+	},
+	"forest3_camp_tent0": {
+		"name": "Tent",
+		"type": ["outdoors", "bw-t-bg-top5", "bw-t-bg-bot5"],
+		"entry_coords": (225, 320),
+		"walk_range": (75, 300, 725, 470),
+		"events": [
+			(None, "place|forest3_camp*350,400", "bw-arrow_up|383,235"),
+		],
+	},
+	"forest3_camp_tent1": {
+		"name": "Tent",
+		"type": ["outdoors", "bw-t-bg-top4", "bw-t-bg-bot4"],
+		"entry_coords": (225, 320),
+		"walk_range": (75, 300, 725, 470),
+		"events": [
+			(None, "place|forest3_camp*350,400", "bw-arrow_up|383,235"),
 		],
 	},
 	"village": {
@@ -518,8 +662,8 @@ world_places = {  # list of places
 	"village_store": {
 		"name": "Store",
 		"type": ["indoors", "bw-wall0", "bw-floor0"],
-		"entry_coords": (480, 302),
-		"walk_range": "default",
+		"entry_coords": (480, 317),
+		"walk_range": (75, 310, 725, 430),
 		"events": [
 			(None, "place|village*312,320", "bw-door0|587,162"),
 			(None, None, "bw-t-shelf0|215,127"),
@@ -669,12 +813,12 @@ quests = {  # Quest added to fertigql if reward is given
 		"stage3": ["    I have decoded the journal. I now know the location of the bandit camp."],
 		"reward": [1750, 300, ["hpot0", "copper_mace"]],
 	},
-	"MQ05": {
+	"MQ05": {  # COMPLETED
 		"name": "Showdown In Camp",
 		"stage": [0, 2],
 		"stage1": ["    I now know the location of the bandits. I should ready myself. Hoard. Prepare. Train. There will be no going back. This will be the end."],
 		"stage2": ["    I have managed it. I have recovered the sword that they have stolen. I have avenged the cabin they have razed. Many questions still lie unanswered. My maiden is missing. One day, answers will come and when it comes, I will be prepared."],
-		"reward": [3000, 1500, ["hpot0", "hpot0", "epic_axe"]],
+		"reward": [3000, 1500, ["hpot0", "hpot0", "axe_epic", "copper_mace", "copper_sword", "book_special", "book_special", "book_special", "book_special", "book_special"]],
 	},
 	# SIDE QUESTS ACT 1  5k EXP 2k GOLD
 	"sq00": {
